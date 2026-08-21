@@ -63,7 +63,7 @@ int main()
         cout<<"client1 accept connected\n";
     }
 
-     sockaddr_in clientadd2{};//클라이언트 연결을 위한 클라이언트소켓구조체1 생성
+     sockaddr_in clientadd2{};//클라이언트 연결을 위한 클라이언트소켓구조체2 생성
     int clientsize2=sizeof(clientadd2);
 
     SOCKET clientsocket2=accept(serverSocket,(sockaddr*)&clientadd2,&clientsize2);

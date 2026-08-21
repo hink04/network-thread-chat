@@ -1,8 +1,42 @@
 #include <iostream>
 #include <winsock2.h>
-
+#include <thread>
 using namespace std;
 
+void sendmsg(SOCKET clientsocket){//메세지 전송
+    while(1){
+        char msg[1024];
+        cout<<"input : ";
+        cin.getline(msg,sizeof(msg));
+        int sent=send(clientsocket,msg,strlen(msg),0);
+        
+        if(sent==SOCKET_ERROR){
+            cout<<"send failed\n";
+            break;
+        }
+
+    }
+}
+
+void receivemsg(SOCKET clientsocket){//메세지 받음
+    while(1){
+        char buffer[2025];
+        int received=recv(clientsocket,buffer,sizeof(buffer)-1,0);
+
+        if(received>0){
+            buffer[received]='\0';
+            cout<<"server : "<<buffer<<'\n';
+        }
+        else if(received==0){
+            cout<<"server disconnected\n";
+            break;
+        }
+        else{
+            cout<<"recv failed : "<<WSAGetLastError()<<'\n';
+            break;
+        }
+    }
+}
 int main()
 {
     WSADATA wsaData;
@@ -54,5 +88,11 @@ int main()
 
     cout << "Connected to server!\n";
 
+    thread sendthread(sendmsg,clientSocket);
+    thread recvthread(receivemsg,clientSocket);
+
+    sendthread.join();
+    recvthread.join();
+    
     return 0;
 }
