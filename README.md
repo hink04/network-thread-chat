@@ -57,10 +57,10 @@ recv()
 ---
 
 ## 메세지 전달 방법
-
+```
 Client 1 → Server → Client 2
 Client 2 → Server → Client 1
-
+```
 ---
 
 ## 개발 환경
@@ -74,13 +74,14 @@ Windows
 ---
 
 ## 프로젝트 구조
+```text
 network-thread-chat/
 ├── client/
 │   └── client.cpp
 ├── server/
 │   └── server.cpp
 └── README.md
-
+```
 ---
 
 # 실행 방법
