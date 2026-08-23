@@ -65,10 +65,15 @@ Client 2 → Server → Client 1
 
 ## 개발 환경
 C++
+
 Winsock2
+
 std::thread
+
 Visual Studio Code
+
 MinGW-w64
+
 Windows
 
 ---
