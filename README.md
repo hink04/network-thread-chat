@@ -47,6 +47,7 @@ recv()
               │                 │
           Client 1           Client 2
 ```
+![프로젝트 구조](explain.png)
 
 서버는 serverSocket을 사용하여 새로운 클라이언트 연결을 기다립니다.
 
