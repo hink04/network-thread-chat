@@ -93,9 +93,11 @@ network-thread-chat/
 # 실행 방법
 
 g++ server/server.cpp -lws2_32 -o server/server.exe
+
 .\server\server.exe
 
 g++ client/client.cpp -lws2_32 -o client/client.exe
+
 .\client\client.exe
 
 
